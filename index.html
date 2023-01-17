@@ -1,19 +1,47 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
-    <meta charset="utf-8" />
-    <title>Des mots en...&#039;Tique&#039;</title>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="canonical" href="https://www.chamillard.fr/" />                             
+    <title>Ici le titre</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="Content-Language" content="fr">
+
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        google.charts.load('current', { packages: ["orgchart"] });
+        google.charts.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+            var data = new google.visualization.DataTable();
+            data.addColumn('string', 'Name');
+            data.addColumn('string', 'Manager');
+            data.addColumn('string', 'ToolTip');
+
+            // For each orgchart box, provide the name, manager, and tooltip to show.
+            data.addRows([
+                [{ 'v': 'Cours', 'f': 'Cours<img src="./fullstack.png" />' },
+                    '', ''],
+                [{ 'v': 'Cadre', 'f': 'Cadre<div style="color:red; font-style:italic">Environnement de travail</div>' },
+                    'Cours', ''],
+                [{ 'v': 'Back', 'f': 'Back<div style="color:red; font-style:italic">NodeJS</div>' },
+                    'Cadre', ''],
+                [{ 'v': 'Front', 'f': 'Front<div style="color:red; font-style:italic">Angular</div>' },
+                    'Cadre', ''],
+                ['Bob', 'Back', 'Bob Sponge'],
+                ['Carol', 'Bob', '']
+            ]);
+
+            // Create the chart.
+            var chart = new google.visualization.OrgChart(document.getElementById('chart_div'));
+            // Draw the chart, setting the allowHtml option to true for the tooltips.
+            chart.draw(data, { 'allowHtml': true });
+        }
+    </script>
 </head>
+
 <body>
-  <p style="text-align: center;"><em><span style="font-size: 18pt;">"La philosophie nous apprend à douter de ce qui nous paraît évident.<br />
-  La propagande au contraire, nous enseigne à accepter pour évident ce dont il serait raisonable de douter."</span></em></p>
-  <p style="text-align: center;"><strong><em><span style="font-size: 15pt;">Aldous Huxley</span></em></strong></p>
-  <p style="text-align: center;"><img src="./verite.webp" alt="" /></p>
-  <p style="text-align: center;"><em><span style="font-size: 18pt;">"Un peuple prêt à sacrifier un peu de liberté pour un peu de sécurité<br />
-  ne mérite ni l'une ni l'autre, et finit par perdre les deux.<span></em></p>
-  <p style="text-align: center;"><strong><em><span style="font-size: 15pt;">Benjamin Franklin</span></em></strong></p>
+    <div id="chart_div"></div>
 </body>
+
 </html>
