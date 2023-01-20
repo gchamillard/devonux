@@ -18,7 +18,6 @@
             data.addColumn('string', 'Manager');
             data.addColumn('string', 'ToolTip');
 
-            // For each orgchart box, provide the name, manager, and tooltip to show.
             data.addRows([
                 [{ 'v': 'Cours', 'f': 'Cours<img src="./fullstack.png" />' },
                     '', ''],
@@ -36,7 +35,6 @@
                 ['---', 'Back', ''],
             ]);
 
-            // Create the chart.
             var chart = new google.visualization.OrgChart(document.getElementById('chart_div'));
             // Draw the chart, setting the allowHtml option to true for the tooltips.
             chart.draw(data, { 'allowHtml': true });
