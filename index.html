@@ -13,7 +13,7 @@
         google.charts.setOnLoadCallback(drawChart);
 
         function drawChart() {
-            var data = new google.visualization.DataTable();
+            var data = new google.visualization.DataTable( {'size': 'large'});
             data.addColumn('string', 'Name');
             data.addColumn('string', 'Manager');
             data.addColumn('string', 'ToolTip');
